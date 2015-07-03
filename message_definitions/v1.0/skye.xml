@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<mavlink>
+    <include>common.xml</include>
+
+    <enums> 
+        <enum name="MAV_CMD">
+            <!-- 1-10000 reserved for common commands -->
+       		<entry value="10001" name="MAV_CMD_SKYE_RESET_AU">
+  	          	<description>Request the reset of an actuation unit component (see MAV_COMP_ID_SERVO)</description>
+  	          	<param index="1">0: do nothing, 1: reset</param>
+  	          	<param index="2">Empty</param>
+  	         	<param index="3">Empty</param>
+  	          	<param index="4">Empty</param>
+  	          	<param index="5">Empty</param>
+  	          	<param index="6">Empty</param>
+  	          	<param index="7">Empty</param>
+            </entry>
+            <!-- From MAV_CMD Enum -->
+        </enum>
+		<enum name="MAV_ACTUATION_UNIT_STATUS">
+		   <description>This is the ActuationNode status enum.</description>
+		   <entry value="0" name="MAV_ACTUATION_UNIT_STATUS_DETACHED">
+		      <description>Actuation unit is detached.</description>
+		   </entry>
+		   <entry value="1" name="MAV_ACTUATION_UNIT_STATUS_INITIALIZING">
+		      <description>Actuation unit is initializing.</description>
+		   </entry>
+		   <entry value="2" name="MAV_ACTUATION_UNIT_STATUS_HOMING">
+		      <description>Actuation unit is currently homing.</description>
+		   </entry>
+		   <entry value="3" name="MAV_ACTUATION_UNIT_STATUS_READY">
+		      <description>Actuation unit is ready to work.</description>
+		   </entry>
+		   <entry value="4" name="MAV_ACTUATION_UNIT_STATUS_DISABLED">
+		      <description>Actuation unit is disabled. (Either because of low battery or because of the disable switch)</description>
+		   </entry>
+		   <entry value="5" name="MAV_ACTUATION_UNIT_STATUS_ERROR">
+		      <description>An error occurred while initialising or operating.</description>
+		   </entry>
+		   <entry value="6" name="MAV_ACTUATION_UNIT_STATUS_UNKNOWN">
+		      <description>Actuation unit state has not been determined yet.</description>
+		   </entry>
+		</enum>
+		<enum name="LED_CONTROL_MODE">
+		   <description>LED control modes. Defines interpretation of LED_CONTROL message parameters.</description>
+		   <entry value="0" name="LED_CONTROL_MODE_CONSTANT">
+		      <description>Constant light intensity and color</description>
+		   </entry>
+		   <entry value="1" name="LED_CONTROL_MODE_BLINK">
+		      <description>Switch LED on/off with given frequency</description>
+		   </entry>
+		   <entry value="2" name="LED_CONTROL_MODE_PULS">
+		      <description>Dim LED like a pulser with given frequency</description>
+		   </entry>
+		   <entry value="3" name="LED_CONTROL_MODE_RAINBOW">
+		      <description>Rotate color wheel (hue) with given frequency</description>
+		   </entry>
+		   <entry value="4" name="LED_CONTROL_MODE_DISCO">
+		      <description>Random pulses/diming/color changes. Considering given frequency</description>
+		   </entry>
+		   <entry value="5" name="LED_CONTROL_MODE_POWER">
+		      <description>Color depending on given motor power</description>
+		   </entry>
+		   <entry value="6" name="LED_CONTROL_MODE_SPEED">
+		      <description>Color depending on translational speed</description>
+		   </entry>
+		   <entry value="7" name="LED_CONTROL_MODE_SPEED_ROT">
+		      <description>Color depending on rotational speed</description>
+		   </entry>
+		</enum>
+
+    </enums>
+	<messages>
+	<!-- Warning: indices must differ from common message set! -->
+  	<message id="200" name="ACTUATOR_LIMITS">
+		<description>Actuator limits for up to 6 actuation units</description>
+		<field type="uint64_t"   name="timestamp">Onboard time</field>
+		<field type="uint8_t[6]" name="valid">Tells wether data is valid</field>
+		<field type="float[6]"   name="th_min">Minimum thrust of actuators</field>
+		<field type="float[6]"   name="th_start">Start thrust of actuators</field>
+		<field type="float[6]"   name="th_max">Maximum thrust of actuators</field>
+		<field type="float[6]"   name="ang_min">Minimum angle of actuators</field>
+		<field type="float[6]"   name="ang_max">Maximum angle of actuators</field>
+  	</message>
+	<message id="201" name="ACTUATION_CONFIGURATION">
+		<description>Settings for up to 6 actuation units: Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
+		<field type="float[4]" name="quat_au1">Quaternion q_BM that describes rotation of AU 1 towards UAV</field>
+		<field type="float[4]" name="quat_au2">Quaternion q_BM that describes rotation of AU 2 towards UAV</field>
+		<field type="float[4]" name="quat_au3">Quaternion q_BM that describes rotation of AU 3 towards UAV</field>
+		<field type="float[4]" name="quat_au4">Quaternion q_BM that describes rotation of AU 4 towards UAV</field>
+		<field type="float[4]" name="quat_au5">Quaternion q_BM that describes rotation of AU 5 towards UAV</field>
+		<field type="float[4]" name="quat_au6">Quaternion q_BM that describes rotation of AU 6 towards UAV</field>
+  	</message>
+	<message id="202" name="ACTUATION_STATUS">
+		<description>Status of an actuation unit</description>
+		<field type="uint8_t" name="au_id">a ID</field>
+		<field type="int8_t" name="status">-1: unknown, 0: detached:, 1: init, 2: homing, 3: ready, 4: disabled, 5: error</field>
+	</message>
+	<!-- messages 210-219 for skye measurements/feedback messages -->
+  	<message id="210" name="POSITION_CTRL_OUTPUT_RAW">
+	  	<description>Raw position controller output values</description>
+		<field type="float" name="F_x">Force in x axis [N]</field>
+		<field type="float" name="F_y">Force in y axis [N]</field>
+		<field type="float" name="F_z">Force in z axis [N]</field>
+	</message>          
+	<message id="211" name="ATTITUDE_CTRL_OUTPUT_RAW">
+		<description>Raw attitude controller output values</description>
+		<field type="float" name="M_x">Moment around x axis [Nm]</field>
+		<field type="float" name="M_y">Moment around y axis [Nm]</field>
+		<field type="float" name="M_z">Moment around z axis [Nm]</field>
+	</message>
+	<message id="212" name="ALLOCATION_OUTPUT_RAW">
+		<description>Raw allocation sensor values for up to 6 AUs</description>
+		<field type="int32_t[6]" name="pos">Orientation motor setpoint of AUs</field>
+		<field type="uint16_t[6]" name="thrust">Thrust motor setpoint of AUs</field>
+	</message>
+	<message id="213" name="ACTUATION_FEEDBACK">
+		<description>Actuation feedback for up to 6 actuation units</description>
+		<field type="uint64_t" name="timestamp">Onboard time</field>
+		<field type="float[6]" name="thrust">Thrust estimate of actuation units in Newton</field>
+		<field type="float[6]" name="angle">Orientation readout of actuation units in Degree</field>
+	</message>
+	<message id="214" name="SKYE_FEEDBACK_COMBINED">
+		<description>Combined message containing data for actuation configuration estimation.</description>
+		<field type="uint64_t"   name="timestamp">Onboard time</field>
+		<field type="float[3]"   name="omega_raw">Raw angular velocity. IMU frame. rad/sec</field>
+		<field type="float[3]"   name="accel_raw">Raw acceleration. IMU frame. m/s2</field>
+		<field type="float[3]"   name="alpha_ekf">Filtered angular acceleration. IMU frame. rad/sec</field>
+		<field type="float[3]"   name="omega_ekf">Filtered angular velocity. IMU frame. rad/sec</field>
+		<field type="float[4]"   name="quat_ekf">Filtered Orientation. IMU frame. rad/sec</field>
+		<field type="float[6]"   name="thrust">Thrust estimate of actuation units in Newton</field>
+		<field type="float[6]"   name="angle">Orientation readout of actuation units in Degree</field>
+  	</message>
+	<message id="215" name="RANGE_SENSOR_RAW">
+		<description>Raw distance measurements from sender to receiver modules (nanotron)</description>
+		<field type="uint8_t" name="sender_idx">Sender module index</field>
+		<field type="float[6]" name="distance">Distances to receiver modules</field>
+	</message>
+	<!-- messages 220-229 for skye input messages -->
+	<message id="220" name="LED_CONTROL">
+		<description>Control single LED or LED array</description>
+		<field type="uint8_t" name="led_id">Led ID</field>
+		<field type="uint8_t" name="red">Red color component for 24bit color</field>
+		<field type="uint8_t" name="green">Red color component for 24bit color</field>
+		<field type="uint8_t" name="blue">Red color component for 24bit color</field>
+		<field type="uint8_t" name="mode">Compare LED_CONTROL_MODE enumerator - 0: Constant light, 1: Blink on/off, 2: Pulsate, 3: Colorloop, 4: Disco, 5: power, 6: speed, 7: rotation</field>
+		<field type="float" name="frequency">Frequency parameter, Hz</field>
+	</message>
+	</messages>
+</mavlink>
