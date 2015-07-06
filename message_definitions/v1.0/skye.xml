@@ -146,5 +146,20 @@
 		<field type="uint8_t" name="mode">Compare LED_CONTROL_MODE enumerator - 0: Constant light, 1: Blink on/off, 2: Pulsate, 3: Colorloop, 4: Disco, 5: power, 6: speed, 7: rotation</field>
 		<field type="float" name="frequency">Frequency parameter, Hz</field>
 	</message>
+	<message id="221" name="SETPOINT_6DOF">
+		<description>Set the 6 DOF setpoint for an attrate and velocity controller.</description>
+		<field type="uint8_t" name="target_system">System ID</field>
+		<field type="float" name="trans_x">Translational Component in x</field>
+		<field type="float" name="trans_y">Translational Component in y</field>
+		<field type="float" name="trans_z">Translational Component in z</field>
+		<field type="float" name="rot_x">Rotational Component in x</field>
+		<field type="float" name="rot_y">Rotational Component in y</field>
+		<field type="float" name="rot_z">Rotational Component in z</field>
+	</message>
+	<message id="222" name="SETPOINT_12DOF">
+		<description>Set the 12 DOF setpoint for up to 12 actuators</description>
+		<field type="uint8_t" name="target_system">System ID</field>
+		<field type="float[12]" name="value">Input vector</field>
+	</message>
 	</messages>
 </mavlink>
