@@ -2775,6 +2775,8 @@
             <field type="int32_t" name="current_consumed">Consumed charge, in milliampere hours (1 = 1 mAh), -1: autopilot does not provide mAh consumption estimate</field>
             <field type="int32_t" name="energy_consumed">Consumed energy, in 100*Joules (intergrated U*I*dt)  (1 = 100 Joule), -1: autopilot does not provide energy consumption estimate</field>
             <field type="int8_t" name="battery_remaining">Remaining battery energy: (0%: 0, 100%: 100), -1: autopilot does not estimate the remaining battery</field>
+			<field type="int32_t" name="current_charged">Charged charge, in milliampere hours (1 = 1 mAh), -1: autopilot does not provide charging</field>
+			<field type="uint32_t" name="time_charged">Charged time, in seconds (1 = 1 second), uint32_max: charged for longer than uint32_max seconds</field>
         </message>
         <message id="148" name="AUTOPILOT_VERSION">
             <description>Version and capability of autopilot software</description>
