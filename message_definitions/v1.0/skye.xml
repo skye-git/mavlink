@@ -68,6 +68,30 @@
 		      <description>Color depending on rotational speed</description>
 		   </entry>
 		</enum>
+		<enum name="BATTERY_STATUS_BITS">
+		   <description>Battery status bit flags.</description>
+		   <entry value="1" name="BATTERY_STATUS_BIT_ATTACHED">
+		      <description>Battery has been detected</description>
+		   </entry>
+		   <entry value="2" name="BATTERY_STATUS_BIT_UNDERVOLTAGE">
+		      <description>Battery has undervoltage</description>
+		   </entry>
+		   <entry value="4" name="BATTERY_STATUS_BIT_DISABLED">
+		      <description>Battery has been disabled</description>
+		   </entry>
+		   <entry value="8" name="BATTERY_STATUS_BIT_CHARGING">
+		      <description>Battery is being charged</description>
+		   </entry>
+		   <entry value="16" name="BATTERY_STATUS_BIT_BALANCING">
+		      <description>Battery is being balanced</description>
+		   </entry>
+		   <entry value="32" name="BATTERY_STATUS_BIT_FULL">
+		      <description>Battery is fully charged</description>
+		   </entry>
+		   <entry value="128" name="BATTERY_STATUS_BIT_ERROR">
+		      <description>Battery error occured</description>
+		   </entry>
+		</enum>
 
     </enums>
 	<messages>
