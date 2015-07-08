@@ -121,19 +121,19 @@
 		<field type="int8_t" name="status">-1: unknown, 0: detached:, 1: init, 2: homing, 3: ready, 4: disabled, 5: error</field>
 	</message>
 	<!-- messages 210-219 for skye measurements/feedback messages -->
-  	<message id="210" name="POSITION_CTRL_OUTPUT_RAW">
+  	<message id="210" name="POSITION_CTRL_OUTPUT">
 	  	<description>Raw position controller output values</description>
 		<field type="float" name="F_x">Force in x axis [N]</field>
 		<field type="float" name="F_y">Force in y axis [N]</field>
 		<field type="float" name="F_z">Force in z axis [N]</field>
 	</message>          
-	<message id="211" name="ATTITUDE_CTRL_OUTPUT_RAW">
+	<message id="211" name="ATTITUDE_CTRL_OUTPUT">
 		<description>Raw attitude controller output values</description>
 		<field type="float" name="M_x">Moment around x axis [Nm]</field>
 		<field type="float" name="M_y">Moment around y axis [Nm]</field>
 		<field type="float" name="M_z">Moment around z axis [Nm]</field>
 	</message>
-	<message id="212" name="ALLOCATION_OUTPUT_RAW">
+	<message id="212" name="ALLOCATION_OUTPUT">
 		<description>Raw allocation sensor values for up to 6 AUs</description>
 		<field type="int32_t[6]" name="pos">Orientation motor setpoint of AUs</field>
 		<field type="uint16_t[6]" name="thrust">Thrust motor setpoint of AUs</field>
@@ -158,7 +158,7 @@
 	<message id="215" name="RANGE_SENSOR_RAW">
 		<description>Raw distance measurements from sender to receiver modules (nanotron)</description>
 		<field type="uint8_t" name="sender_idx">Sender module index</field>
-		<field type="float[6]" name="distance">Distances to receiver modules</field>
+		<field type="float[6]" name="dist_raw">Distances to receiver modules</field>
 	</message>
 	<!-- messages 220-229 for skye input messages -->
 	<message id="220" name="LED_CONTROL">
