@@ -183,7 +183,7 @@
 	<message id="222" name="SETPOINT_12DOF">
 		<description>Set the 12 DOF setpoint for up to 12 actuators</description>
 		<field type="uint8_t" name="target_system">System ID</field>
-		<field type="float[12]" name="value">Input vector</field>
+		<field type="float[12]" name="values">Input vector</field>
 	</message>
 	</messages>
 </mavlink>
