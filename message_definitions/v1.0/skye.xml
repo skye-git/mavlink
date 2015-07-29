@@ -15,6 +15,16 @@
   	          	<param index="6">Empty</param>
   	          	<param index="7">Empty</param>
             </entry>
+       		<entry value="10002" name="MAV_CMD_SET_SKYE_CONTROL_MODE">
+  	          	<description>Set Skye control mode parameter. TODO: Separate stabilisation from input interpretation</description>
+  	          	<param index="1">0: manual, 1: stab 5DOF, 2: stab 5DOF. See enum SKYE_CONTROL_MODE</param>
+  	          	<param index="2">Empty</param>
+  	         	<param index="3">Empty</param>
+  	          	<param index="4">Empty</param>
+  	          	<param index="5">Empty</param>
+  	          	<param index="6">Empty</param>
+  	          	<param index="7">Empty</param>
+            </entry>
             <!-- From MAV_CMD Enum -->
         </enum>
 		<enum name="MAV_ACTUATION_UNIT_STATUS">
@@ -90,6 +100,21 @@
 		   </entry>
 		   <entry value="128" name="BATTERY_STATUS_BIT_ERROR">
 		      <description>Battery error occured</description>
+		   </entry>
+		</enum>
+		<enum name="SKYE_CONTROL_MODE">
+		   <description>Defines interpretation of MAV_CMD_SET_SKYE_CONTROL_MODE message parameters.</description>
+		   <entry value="0" name="SKYE_CONTROL_MODE_MANUAL">
+		      <description>Direct control of resulting moment and force. No att/rate controller.</description>
+		   </entry>
+		   <entry value="1" name="SKYE_CONTROL_MODE_5DOF">
+		      <description>Attitude control. Rate input roll is blocked.</description>
+		   </entry>
+		   <entry value="2" name="SKYE_CONTROL_MODE_6DOF">
+		      <description>Attitude control. Rate inputs for all axis enabled.</description>
+		   </entry>
+		   <entry value="3" name="SKYE_CONTROL_MODE_MAX">
+		      <description></description>
 		   </entry>
 		</enum>
 
