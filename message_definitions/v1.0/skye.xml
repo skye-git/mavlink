@@ -160,14 +160,14 @@
 	</message>
 	<message id="212" name="ALLOCATION_OUTPUT">
 		<description>Raw allocation sensor values for up to 6 AUs</description>
-		<field type="int32_t[6]" name="pos">Orientation motor setpoint of AUs</field>
-		<field type="uint16_t[6]" name="thrust">Thrust motor setpoint of AUs</field>
+		<field type="float[6]" name="angle">Orientation motor setpoint of AUs [deg]</field>
+		<field type="float[6]" name="thrust">Thrust motor setpoint of AUs [N]</field>
 	</message>
 	<message id="213" name="ACTUATION_FEEDBACK">
 		<description>Actuation feedback for up to 6 actuation units</description>
 		<field type="uint64_t" name="timestamp">Onboard time</field>
-		<field type="float[6]" name="thrust">Thrust estimate of actuation units in Newton</field>
-		<field type="float[6]" name="angle">Orientation readout of actuation units in Degree</field>
+		<field type="float[6]" name="thrust">Thrust estimate of AUs [N]</field>
+		<field type="float[6]" name="angle">Orientation readout of AUs [deg]</field>
 	</message>
 	<message id="214" name="SKYE_FEEDBACK_COMBINED">
 		<description>Combined message containing data for actuation configuration estimation.</description>
