@@ -113,7 +113,10 @@
 		   <entry value="2" name="SKYE_CONTROL_MODE_6DOF">
 		      <description>Attitude control. Rate inputs for all axis enabled.</description>
 		   </entry>
-		   <entry value="3" name="SKYE_CONTROL_MODE_MAX">
+		   <entry value="3" name="SKYE_CONTROL_MODE_6DOFI">
+		      <description>Attitude control. Rate inputs for all axis enabled in I-frame.</description>
+		   </entry>
+		   <entry value="4" name="SKYE_CONTROL_MODE_MAX">
 		      <description></description>
 		   </entry>
 		</enum>
