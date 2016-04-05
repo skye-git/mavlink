@@ -213,9 +213,9 @@
 		<field type="uint8_t" name="target_system">System ID</field>
 		<field type="float[12]" name="values">Input vector</field>
 	</message>
-	<message id="223" name="SKYE_IMU_ATTITUDE_HIL">
-		<description>Combined message containing IMU attitude from Gazebo simulator.</description>
-		<!-- <field type="uint64_t"   name="timestamp">Onboard time</field> -->
+	<message id="223" name="SKYE_ATTITUDE_HIL">
+		<description>Combined message containing attitude data from skye_ros package.</description>
+		<field type="uint64_t"   name="timestamp">Unix time</field> 
 		<field type="float"   name="roll">Roll angle (rad, Tait-Bryan, NED)</field>
 		<field type="float"   name="pitch">Pitch angle (rad, Tait-Bryan, NED)</field>
 		<field type="float"   name="yaw">Yaw angle (rad, Tait-Bryan, NED)</field>
