@@ -223,6 +223,13 @@
 		<field type="float"   name="pitchspeed">Pitch body angular rate (rad/s, x forward/y right/z down)</field>
 		<field type="float"   name="yawspeed">Yaw body angular rate (rad/s, x forward/y right/z down)</field>
 		<field type="float[4]"   name="q">Quaternion (NED)</field>
-  </message>
+  	</message>
+	<message id="224" name="SKYE_POSITION_HIL">
+		<description>Combined message containing position data from mavros.</description>
+		<field type="uint64_t"   name="timestamp">Unix time</field> 
+		<field type="float"   name="x">Local North position</field>
+		<field type="float"   name="y">Local East position</field>
+		<field type="float"   name="z">Local Down position</field>
+	</message>
 	</messages>
 </mavlink>
