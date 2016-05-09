@@ -230,6 +230,9 @@
 		<field type="float"   name="x">Local North position</field>
 		<field type="float"   name="y">Local East position</field>
 		<field type="float"   name="z">Local Down position</field>
+		<field type="float"   name="vx">Local North velocity</field>
+		<field type="float"   name="vy">Local East velocity</field>
+		<field type="float"   name="vz">Local Down velocity</field>
 	</message>
 	</messages>
 </mavlink>
