@@ -25,3 +25,8 @@ pymavlink.egg-info/
 include/
 .tags*
 include/mavlink/v1.0
+*.config
+*.creatir
+*.files
+*.includes
+

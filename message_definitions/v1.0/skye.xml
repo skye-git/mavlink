@@ -102,7 +102,9 @@
 		      <description>Battery error occured</description>
 		   </entry>
 		</enum>
-		<enum name="SKYE_CONTROL_MODE">
+
+
+  <enum name="SKYE_CONTROL_MODE"> <!-- Deprecated: use either SKYE_C_MOD_POS or SKYE_C_MOD_ATT -->
 		   <description>Defines interpretation of MAV_CMD_SET_SKYE_CONTROL_MODE message parameters.</description>
 		   <entry value="0" name="SKYE_CONTROL_MODE_MANUAL">
 		      <description>Direct control of resulting moment and force. No att/rate controller.</description>
@@ -120,6 +122,35 @@
 		      <description></description>
 		   </entry>
 		</enum>
+
+  <enum name="SKYE_C_MOD_POS">
+     <description>Position controller modes.</description>
+     <entry value="0" name="MANUAL">
+        <description>Direct control of resulting force. No position/velocity controller.</description>
+     </entry>
+     <entry value="1" name="CASCADE_PID">
+        <description>Cascade controller.</description>
+     </entry>
+  </enum>
+
+  <enum name="SKYE_C_MOD_ATT">
+     <description>Attitude controller modes.</description>
+     <entry value="0" name="MANUAL">
+        <description>Direct control of resulting moment. No att/rate controller.</description>
+     </entry>
+     <entry value="1" name="DOF_5">
+        <description>Attitude control. Rate input roll is blocked.</description>
+     </entry>
+     <entry value="2" name="DOF_6">
+        <description>Attitude control. Rate inputs for all axis enabled.</description>
+     </entry>
+     <entry value="3" name="DOF_6_I">
+        <description>Attitude control. Rate inputs for all axis enabled in I-frame.</description>
+     </entry>
+     <entry value="4" name="MAX">
+        <description></description>
+     </entry>
+  </enum>
 
     </enums>
 	<messages>
