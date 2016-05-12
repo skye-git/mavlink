@@ -123,31 +123,31 @@
 		   </entry>
 		</enum>
 
-  <enum name="SKYE_C_MOD_POS">
+  <enum name="SKYE_POS_C_MOD">
      <description>Position controller modes.</description>
-     <entry value="0" name="POS_MANUAL">
+     <entry value="0" name="SKYE_POS_C_MOD_MANUAL">
         <description>Direct control of resulting force. No position/velocity controller.</description>
      </entry>
-     <entry value="1" name="POS_CASCADE_PID">
+     <entry value="1" name="SKYE_POS_C_MOD_CASCADE_PID">
         <description>Cascade controller.</description>
      </entry>
   </enum>
 
-  <enum name="SKYE_C_MOD_ATT">
+  <enum name="SKYE_ATT_C_MOD">
      <description>Attitude controller modes.</description>
-     <entry value="0" name="ATT_MANUAL">
+     <entry value="0" name="SKYE_ATT_C_MOD_MANUAL">
         <description>Direct control of resulting moment. No att/rate controller.</description>
      </entry>
-     <entry value="1" name="ATT_5_DOF">
+     <entry value="1" name="SKYE_ATT_C_MOD_5_DOF">
         <description>Attitude control. Rate input roll is blocked.</description>
      </entry>
-     <entry value="2" name="ATT_6_DOF">
+     <entry value="2" name="SKYE_ATT_C_MOD_6_DOF">
         <description>Attitude control. Rate inputs for all axis enabled.</description>
      </entry>
-     <entry value="3" name="ATT_6_DOFI">
+     <entry value="3" name="SKYE_ATT_C_MOD_6_DOFI">
         <description>Attitude control. Rate inputs for all axis enabled in I-frame.</description>
      </entry>
-     <entry value="4" name="MAX">
+     <entry value="4" name="SKYE_ATT_C_MOD_MAX">
         <description></description>
      </entry>
   </enum>

@@ -29,4 +29,4 @@ include/mavlink/v1.0
 *.creatir
 *.files
 *.includes
-
+*.user
