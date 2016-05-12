@@ -1564,6 +1564,9 @@
               <entry value="39" name="MAV_SENSOR_ROTATION_ROLL_142_YAW_270">
                   <description>Roll: 142, Pitch: 0, Yaw: 270</description>
               </entry>
+              <entry value="40" name="MAV_SENSOR_ROTATION_ROLL_150_YAW_270">
+                  <description>Roll: 150, Pitch: 0, Yaw: 270</description>
+              </entry>
           </enum>
           <enum name="MAV_PROTOCOL_CAPABILITY">
               <description>Bitmask of (optional) autopilot capabilities (64 bit). If a bit is set, the autopilot supports this capability.</description>
