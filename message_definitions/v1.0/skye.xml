@@ -131,6 +131,9 @@
      <entry value="1" name="SKYE_POS_C_MOD_CASCADE_PID">
         <description>Cascade controller.</description>
      </entry>
+     <entry value="2" name="SKYE_POS_C_MOD_PID">
+        <description>PID controller</description>
+     </entry>
   </enum>
 
   <enum name="SKYE_ATT_C_MOD">
@@ -147,7 +150,10 @@
      <entry value="3" name="SKYE_ATT_C_MOD_6_DOFI">
         <description>Attitude control. Rate inputs for all axis enabled in I-frame.</description>
      </entry>
-     <entry value="4" name="SKYE_ATT_C_MOD_MAX">
+     <entry value="4" name="SKYE_ATT_C_MOD_GEOM">
+        <description></description>
+     </entry>
+     <entry value="5" name="SKYE_ATT_C_MOD_MAX">
         <description></description>
      </entry>
   </enum>
