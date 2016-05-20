@@ -271,5 +271,12 @@
 		<field type="float"   name="vy">Local East velocity</field>
 		<field type="float"   name="vz">Local Down velocity</field>
 	</message>
+	<message id="225" name="SKYE_DEBUG_VEC3">
+		<description>Debugging message containing 3 floats.</description>
+		<field type="uint64_t"   name="timestamp">Unix time</field> 
+		<field type="float"   name="x">X</field>
+		<field type="float"   name="y">Y</field>
+		<field type="float"   name="z">Z</field>
+	</message>
 	</messages>
 </mavlink>
