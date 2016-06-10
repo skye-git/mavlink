@@ -17,6 +17,8 @@
 # mkdir -p include/mavlink/v1.0
 # cd include/mavlink/v1.0
 # git clone git@github.com:skye-git/c_library.git
+# cd c_library
+# git checkout skye_pixracer_porting
 # cd ~/src/mavlink
 # ./scripts/update_c_library.sh
 #
