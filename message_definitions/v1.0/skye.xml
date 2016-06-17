@@ -236,6 +236,7 @@
 	</message>
 	<message id="217" name="BATTERY_STATUS_WITH_ID">
 		<description>Battery status of each AU</description>
+		<field type="uint8_t" name="id">Au ID</field>
 		<field type="int32_t" name="current_consumed"></field>
 		<field type="int32_t" name="energy_consumed"></field>
 		<field type="int32_t" name="current_charged"></field>
