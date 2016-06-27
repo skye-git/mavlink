@@ -278,5 +278,11 @@
 		<field type="float"   name="y">Y</field>
 		<field type="float"   name="z">Z</field>
 	</message>
+	<message id="226" name="SKYE_SETPOINT_AU">
+		<description>Set the 2 DOF setpoint for a single AU.</description>
+		<field type="uint8_t" name="id">Actuation Unit ID</field>
+		<field type="float" name="thrust">Thrust command</field>
+		<field type="float" name="angle">Angle command</field>
+	</message>
 	</messages>
 </mavlink>
