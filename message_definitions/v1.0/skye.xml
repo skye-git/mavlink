@@ -199,9 +199,10 @@
 		<field type="float" name="M_z">Moment around z axis [Nm]</field>
 	</message>
 	<message id="212" name="ALLOCATION_OUTPUT">
-		<description>Raw allocation sensor values for up to 6 AUs</description>
-		<field type="float[6]" name="angle">Orientation motor setpoint of AUs [deg]</field>
-		<field type="float[6]" name="thrust">Thrust motor setpoint of AUs [N]</field>
+		<description>Raw allocation sensor values for one AU</description>
+		<field type="uint8_t" name="id">Actuation Unit ID</field>
+		<field type="float" name="angle">Orientation motor setpoint of AU [deg]</field>
+		<field type="float" name="thrust">Thrust motor setpoint of AU [N]</field>
 	</message>
 	<message id="213" name="ACTUATION_FEEDBACK">
 		<description>Actuation feedback for up to 6 actuation units</description>
