@@ -200,8 +200,8 @@
 	</message>
 	<message id="212" name="ALLOCATION_OUTPUT">
 		<description>Raw allocation sensor values for up to 6 AUs</description>
-		<field type="float[6]" name="angle">Orientation motor setpoint of AUs [deg]</field>
-		<field type="float[6]" name="thrust">Thrust motor setpoint of AUs [N]</field>
+    <field type="float[8]" name="angle">Orientation motor setpoint of AUs [deg]</field>
+    <field type="float[8]" name="thrust">Thrust motor setpoint of AUs [N]</field>
 	</message>
 	<message id="213" name="ACTUATION_FEEDBACK">
 		<description>Actuation feedback for up to 6 actuation units</description>
