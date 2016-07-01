@@ -529,6 +529,26 @@
                     <description/>
                </entry>
           </enum>
+
+          <!-- RGBLED Commands -->
+          <enum name="RGBLED_OPERATIONS">
+               <description>Operations for RGBLED.</description>
+               <entry value="0" name="RGBLED_OP_SET_RGB_COLOR">
+                    <description>Set the color of the rgb light. Next three params specify the red, green, and blue channels respectively.</description>
+               </entry>
+               <entry value="1" name="RGBLED_OP_SET_PREDEFINED_COLOR">
+                    <description>Set the color of the rgb light using one of the predefined colors indicated in the next param.</description>
+               </entry>
+
+               <entry value="2" name="RGBLED_OP_SET_MODE">
+                    <description>Set the mode of the rgb led. Next parameter indicates the mode.</description>
+               </entry>
+
+               <entry value="3" name="RGBLED_OP_SET_PATTERN">
+                    <description>Set the pattern of the rgb led. Next parameter indicates the pattern.</description>
+               </entry>
+          </enum>
+
           <!-- fenced mode enums -->
           <enum name="FENCE_ACTION">
               <entry name="FENCE_ACTION_NONE" value="0">
@@ -1264,7 +1284,7 @@
                   <param index="1">Reserved</param>
                   <param index="2">Reserved</param>
               </entry>
-              
+
               <entry name="MAV_CMD_DO_TRIGGER_CONTROL" value="2003">
                    <description>Enable or disable on-board camera triggering system.</description>
                    <param index="1">Trigger enable/disable (0 for disable, 1 for start)</param>
@@ -1314,6 +1334,15 @@
                   <param index="6">Unscaled target longitude of center of circle in CIRCLE_MODE</param>
               </entry>
 
+              <!-- Generic Peripherals -->
+              <entry value="5000" name="MAV_CMD_SET_RGB_LED">
+                  <description>Change RGB LED Behavior.</description>
+                  <param index="1">Operation, as defined by ENUM RGBLED_OPERATIONS</param>
+                  <param index="2">Reserved for args.</param>
+                  <param index="3">Reserved for args.</param>
+                  <param index="4">Reserved for args.</param>
+              </entry>
+
               <!-- VALUES FROM 0-40000 are reserved for the common message set. Values from 40000 to UINT16_MAX are available for dialects -->
 
               <!-- BEGIN of payload range (30000 to 30999) -->
@@ -1338,7 +1367,7 @@
                   <param index="7">Reserved</param>
               </entry>
               <!-- END of payload range (30000 to 30999) -->
-              
+
               <!-- BEGIN user defined range (31000 to 31999) -->
               <entry value="31000" name="MAV_CMD_WAYPOINT_USER_1">
                   <description>User defined waypoint item. Ground Station will show the Vehicle as flying through this item.</description>
@@ -1848,10 +1877,10 @@
               </entry>
               <entry value="25" name="MAV_SENSOR_ROTATION_PITCH_270">
                 <description>Roll: 0, Pitch: 270, Yaw: 0</description>
-              </entry>   
+              </entry>
               <entry value="26" name="MAV_SENSOR_ROTATION_PITCH_180_YAW_90">
                 <description>Roll: 0, Pitch: 180, Yaw: 90</description>
-              </entry>  
+              </entry>
               <entry value="27" name="MAV_SENSOR_ROTATION_PITCH_180_YAW_270">
                   <description>Roll: 0, Pitch: 180, Yaw: 270</description>
               </entry>
