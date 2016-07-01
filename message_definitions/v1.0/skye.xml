@@ -164,12 +164,12 @@
   	<message id="200" name="ACTUATOR_LIMITS">
 		<description>Actuator limits for up to 6 actuation units</description>
 		<field type="uint64_t"   name="timestamp">Onboard time</field>
-		<field type="uint8_t[6]" name="valid">Tells wether data is valid</field>
-		<field type="float[6]"   name="th_min">Minimum thrust of actuators</field>
-		<field type="float[6]"   name="th_start">Start thrust of actuators</field>
-		<field type="float[6]"   name="th_max">Maximum thrust of actuators</field>
-		<field type="float[6]"   name="ang_min">Minimum angle of actuators</field>
-		<field type="float[6]"   name="ang_max">Maximum angle of actuators</field>
+    <field type="uint8_t[8]" name="valid">Tells wether data is valid</field>
+    <field type="float[8]"   name="th_min">Minimum thrust of actuators</field>
+    <field type="float[8]"   name="th_start">Start thrust of actuators</field>
+    <field type="float[8]"   name="th_max">Maximum thrust of actuators</field>
+    <field type="float[8]"   name="ang_min">Minimum angle of actuators</field>
+    <field type="float[8]"   name="ang_max">Maximum angle of actuators</field>
   	</message>
 	<message id="201" name="ACTUATION_CONFIGURATION">
 		<description>Settings for up to 6 actuation units: Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
@@ -206,8 +206,8 @@
 	<message id="213" name="ACTUATION_FEEDBACK">
 		<description>Actuation feedback for up to 6 actuation units</description>
 		<field type="uint64_t" name="timestamp">Onboard time</field>
-		<field type="float[6]" name="thrust">Thrust estimate of AUs [N]</field>
-		<field type="float[6]" name="angle">Orientation readout of AUs [deg]</field>
+    <field type="float[8]" name="thrust">Thrust estimate of AUs [N]</field>
+    <field type="float[8]" name="angle">Orientation readout of AUs [deg]</field>
 	</message>
 	<message id="214" name="SKYE_FEEDBACK_COMBINED">
 		<description>Combined message containing data for actuation configuration estimation.</description>

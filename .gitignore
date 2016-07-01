@@ -30,3 +30,4 @@ include/mavlink/v1.0
 *.files
 *.includes
 *.user
+*.creator
