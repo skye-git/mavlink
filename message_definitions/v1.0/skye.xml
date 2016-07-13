@@ -161,7 +161,7 @@
     </enums>
 	<messages>
 	<!-- Warning: indices must differ from common message set! -->
-    <message id="200" name="ACTUATOR_LIMITS_ID">
+    <!-- <message id="200" name="ACTUATOR_LIMITS_ID">
     <description>Actuator limits</description>
     <field type="uint64_t"  name="timestamp">Onboard time</field>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
@@ -171,12 +171,12 @@
     <field type="float"     name="th_max">Maximum thrust of actuators</field>
     <field type="float"     name="ang_min">Minimum angle of actuators</field>
     <field type="float"     name="ang_max">Maximum angle of actuators</field>
-  	</message>
-  <message id="201" name="ACTUATION_CONFIGURATION_ID">
+    </message> -->
+  <!-- <message id="201" name="ACTUATION_CONFIGURATION_ID">
     <description>Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
     <field type="uint8_t"   name="id">Actuation Uniti ID</field>
     <field type="float[4]"  name="quat">Quaternion q_BM that describes rotation of the AU towards UAV</field>
-  	</message>
+    </message> -->
   <message id="202" name="ACTUATION_STATUS_ID">
 		<description>Status of an actuation unit</description>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
@@ -201,7 +201,7 @@
     <field type="float"     name="angle">Orientation motor setpoint of the AU [deg]</field>
     <field type="float"     name="thrust">Thrust motor setpoint of the AU [N]</field>
 	</message>
-  <message id="213" name="ACTUATION_FEEDBACK_ID">
+  <message id="213" name="ALLOCATION_SENSOR_ID">
     <description>Actuation feedback of the AU with id ID</description>
     <field type="uint64_t"  name="timestamp">Onboard time</field>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
