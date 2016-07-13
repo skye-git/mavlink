@@ -247,7 +247,8 @@
   <message id="222" name="SETPOINT_2DOF_ID">
     <description>Set the 2 DOF setpoint for the AU</description>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
-    <field type="float[2]"  name="values">Input vector</field>
+    <field type="float"     name="angle">Orientation motor setpoint of the AU [deg]</field>
+    <field type="float"     name="thrust">Thrust motor setpoint of the AU [N]</field>
 	</message>
   <message id="223" name="ATTITUDE_HIL">
 		<description>Combined message containing attitude data from skye_ros package.</description>
