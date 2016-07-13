@@ -208,7 +208,7 @@
     <field type="float"     name="thrust">Thrust estimate of the AU [N]</field>
     <field type="float"     name="angle">Orientation readout of the AU [deg]</field>
 	</message>
-	<message id="214" name="SKYE_FEEDBACK_COMBINED">
+  <!-- <message id="214" name="FEEDBACK_COMBINED">
 		<description>Combined message containing data for actuation configuration estimation.</description>
 		<field type="uint64_t"   name="timestamp">Onboard time</field>
 		<field type="float[3]"   name="omega_raw">Raw angular velocity. IMU frame. rad/sec</field>
@@ -223,7 +223,7 @@
 		<description>Raw distance measurements from sender to receiver modules (nanotron)</description>
 		<field type="uint8_t" name="sender_idx">Sender module index</field>
 		<field type="float[6]" name="dist_raw">Distances to receiver modules</field>
-	</message>
+  </message> -->
 	<!-- messages 220-229 for skye input messages -->
 	<message id="220" name="LED_CONTROL">
 		<description>Control single LED or LED array</description>
@@ -249,7 +249,7 @@
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
     <field type="float[2]"  name="values">Input vector</field>
 	</message>
-	<message id="223" name="SKYE_ATTITUDE_HIL">
+  <message id="223" name="ATTITUDE_HIL">
 		<description>Combined message containing attitude data from skye_ros package.</description>
 		<field type="uint64_t"   name="timestamp">Unix time</field> 
 		<field type="float"   name="roll">Roll angle (rad, Tait-Bryan, NED)</field>
@@ -260,7 +260,7 @@
 		<field type="float"   name="yawspeed">Yaw body angular rate (rad/s, x forward/y right/z down)</field>
 		<field type="float[4]"   name="q">Quaternion (NED)</field>
   	</message>
-	<message id="224" name="SKYE_POSITION_HIL">
+  <message id="224" name="POSITION_HIL">
 		<description>Combined message containing position data from mavros.</description>
 		<field type="uint64_t"   name="timestamp">Unix time</field> 
 		<field type="float"   name="x">Local North position</field>
@@ -270,7 +270,7 @@
 		<field type="float"   name="vy">Local East velocity</field>
 		<field type="float"   name="vz">Local Down velocity</field>
 	</message>
-	<message id="225" name="SKYE_DEBUG_VEC3">
+  <message id="225" name="DEBUG_VEC3">
 		<description>Debugging message containing 3 floats.</description>
 		<field type="uint64_t"   name="timestamp">Unix time</field> 
 		<field type="float"   name="x">X</field>
