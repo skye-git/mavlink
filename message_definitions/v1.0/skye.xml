@@ -161,29 +161,26 @@
     </enums>
 	<messages>
 	<!-- Warning: indices must differ from common message set! -->
-  	<message id="200" name="ACTUATOR_LIMITS">
-		<description>Actuator limits for up to 6 actuation units</description>
-		<field type="uint64_t"   name="timestamp">Onboard time</field>
-    <field type="uint8_t[8]" name="valid">Tells wether data is valid</field>
-    <field type="float[8]"   name="th_min">Minimum thrust of actuators</field>
-    <field type="float[8]"   name="th_start">Start thrust of actuators</field>
-    <field type="float[8]"   name="th_max">Maximum thrust of actuators</field>
-    <field type="float[8]"   name="ang_min">Minimum angle of actuators</field>
-    <field type="float[8]"   name="ang_max">Maximum angle of actuators</field>
+    <message id="200" name="ACTUATOR_LIMITS_ID">
+    <description>Actuator limits</description>
+    <field type="uint64_t"  name="timestamp">Onboard time</field>
+    <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="uint8_t"   name="valid">Tells wether data is valid</field>
+    <field type="float"     name="th_min">Minimum thrust of actuators</field>
+    <field type="float"     name="th_start">Start thrust of actuators</field>
+    <field type="float"     name="th_max">Maximum thrust of actuators</field>
+    <field type="float"     name="ang_min">Minimum angle of actuators</field>
+    <field type="float"     name="ang_max">Maximum angle of actuators</field>
   	</message>
-	<message id="201" name="ACTUATION_CONFIGURATION">
-		<description>Settings for up to 6 actuation units: Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
-		<field type="float[4]" name="quat_au1">Quaternion q_BM that describes rotation of AU 1 towards UAV</field>
-		<field type="float[4]" name="quat_au2">Quaternion q_BM that describes rotation of AU 2 towards UAV</field>
-		<field type="float[4]" name="quat_au3">Quaternion q_BM that describes rotation of AU 3 towards UAV</field>
-		<field type="float[4]" name="quat_au4">Quaternion q_BM that describes rotation of AU 4 towards UAV</field>
-		<field type="float[4]" name="quat_au5">Quaternion q_BM that describes rotation of AU 5 towards UAV</field>
-		<field type="float[4]" name="quat_au6">Quaternion q_BM that describes rotation of AU 6 towards UAV</field>
+  <message id="201" name="ACTUATION_CONFIGURATION_ID">
+    <description>Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
+    <field type="uint8_t"   name="id">Actuation Uniti ID</field>
+    <field type="float[4]"  name="quat">Quaternion q_BM that describes rotation of the AU towards UAV</field>
   	</message>
-	<message id="202" name="ACTUATION_STATUS">
+  <message id="202" name="ACTUATION_STATUS_ID">
 		<description>Status of an actuation unit</description>
-		<field type="uint8_t" name="au_id">a ID</field>
-		<field type="int8_t" name="status">-1: unknown, 0: detached:, 1: init, 2: homing, 3: ready, 4: disabled, 5: error</field>
+    <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="int8_t"    name="status">-1: unknown, 0: detached:, 1: init, 2: homing, 3: ready, 4: disabled, 5: error</field>
 	</message>
 	<!-- messages 210-219 for skye measurements/feedback messages -->
   	<message id="210" name="POSITION_CTRL_OUTPUT">
@@ -198,16 +195,18 @@
 		<field type="float" name="M_y">Moment around y axis [Nm]</field>
 		<field type="float" name="M_z">Moment around z axis [Nm]</field>
 	</message>
-	<message id="212" name="ALLOCATION_OUTPUT">
-		<description>Raw allocation sensor values for up to 6 AUs</description>
-    <field type="float[8]" name="angle">Orientation motor setpoint of AUs [deg]</field>
-    <field type="float[8]" name="thrust">Thrust motor setpoint of AUs [N]</field>
+  <message id="212" name="ALLOCATION_OUTPUT_ID">
+    <description>Allocation output for the AU with id ID</description>
+    <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="float"     name="angle">Orientation motor setpoint of the AU [deg]</field>
+    <field type="float"     name="thrust">Thrust motor setpoint of the AU [N]</field>
 	</message>
-	<message id="213" name="ACTUATION_FEEDBACK">
-		<description>Actuation feedback for up to 6 actuation units</description>
-		<field type="uint64_t" name="timestamp">Onboard time</field>
-    <field type="float[8]" name="thrust">Thrust estimate of AUs [N]</field>
-    <field type="float[8]" name="angle">Orientation readout of AUs [deg]</field>
+  <message id="213" name="ACTUATION_FEEDBACK_ID">
+    <description>Actuation feedback of the AU with id ID</description>
+    <field type="uint64_t"  name="timestamp">Onboard time</field>
+    <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="float"     name="thrust">Thrust estimate of the AU [N]</field>
+    <field type="float"     name="angle">Orientation readout of the AU [deg]</field>
 	</message>
 	<message id="214" name="SKYE_FEEDBACK_COMBINED">
 		<description>Combined message containing data for actuation configuration estimation.</description>
@@ -245,10 +244,10 @@
 		<field type="float" name="rot_y">Rotational Component in y</field>
 		<field type="float" name="rot_z">Rotational Component in z</field>
 	</message>
-	<message id="222" name="SETPOINT_12DOF">
-		<description>Set the 12 DOF setpoint for up to 12 actuators</description>
-		<field type="uint8_t" name="target_system">System ID</field>
-		<field type="float[12]" name="values">Input vector</field>
+  <message id="222" name="SETPOINT_2DOF_ID">
+    <description>Set the 2 DOF setpoint for the AU</description>
+    <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="float[2]"  name="values">Input vector</field>
 	</message>
 	<message id="223" name="SKYE_ATTITUDE_HIL">
 		<description>Combined message containing attitude data from skye_ros package.</description>
@@ -277,12 +276,6 @@
 		<field type="float"   name="x">X</field>
 		<field type="float"   name="y">Y</field>
 		<field type="float"   name="z">Z</field>
-	</message>
-	<message id="226" name="SKYE_SETPOINT_AU">
-		<description>Set the 2 DOF setpoint for a single AU.</description>
-		<field type="uint8_t" name="id">Actuation Unit ID</field>
-		<field type="float" name="thrust">Thrust command</field>
-		<field type="float" name="angle">Angle command</field>
 	</message>
 	</messages>
 </mavlink>
