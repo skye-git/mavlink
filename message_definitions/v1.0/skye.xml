@@ -224,6 +224,16 @@
 		<field type="uint8_t" name="sender_idx">Sender module index</field>
 		<field type="float[6]" name="dist_raw">Distances to receiver modules</field>
   </message> -->
+
+  <message id="215" name="BATTERY_STATUS_ID">
+    <description>Battery information of one AU, hardcoded max 6 cells</description>
+    <field type="uint8_t"     name="id">Actuation Unit ID</field>
+    <field type="uint16_t[6]" name="voltages">Battery voltage of MAX 6 cells, in millivolts (1 = 1 millivolt)</field>
+    <field type="int16_t"     name="current_battery">Battery current, in 10*milliamperes (1 = 10 milliampere), -1: autopilot does not measure the current</field>
+    <field type="int32_t"     name="current_consumed">Consumed charge, in milliampere hours (1 = 1 mAh), -1: autopilot does not provide mAh consumption estimate</field>
+    <field type="int32_t"     name="energy_consumed">Consumed energy, in 100*Joules (intergrated U*I*dt)  (1 = 100 Joule), -1: autopilot does not provide energy consumption estimate</field>
+    <field type="int8_t"      name="battery_remaining">Remaining battery energy: (0%: 0, 100%: 100), -1: autopilot does not estimate the remaining battery</field>
+  </message>
 	<!-- messages 220-229 for skye input messages -->
 	<message id="220" name="LED_CONTROL">
 		<description>Control single LED or LED array</description>
