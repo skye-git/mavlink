@@ -1,0 +1,3 @@
+[submodule "include/mavlink/v1.0"]
+	path = include/mavlink/v1.0
+	url = git@github.com:skye-git/c_library

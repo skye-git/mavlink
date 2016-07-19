@@ -22,6 +22,4 @@ pymavlink.egg-info/
 .pydevproject
 .project
 .ropeproject
-include/
 .tags*
-include/mavlink/v1.0
