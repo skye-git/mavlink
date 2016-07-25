@@ -289,5 +289,17 @@
 		<field type="float"   name="y">Y</field>
 		<field type="float"   name="z">Z</field>
 	</message>
+  <message id="226" name="ACCELEROMETERS_HIL">
+    <description>Messages contaning hull's linear acceleration from Gazebo, in body frame.</description>
+    <field type="float"   name="x">X acceleration, body frame</field>
+    <field type="float"   name="y">Y acceleration, body frame</field>
+    <field type="float"   name="z">Z acceleration, body frame</field>
+  </message>
+  <message id="227" name="GYROSCOPES_HIL">
+    <description>Messages contaning hull's angular velocity from Gazebo, in body frame.</description>
+    <field type="float"   name="x">X angular velocity, body frame</field>
+    <field type="float"   name="y">Y angular velocity, body frame</field>
+    <field type="float"   name="z">Z angular velocity, body frame</field>
+  </message>
 	</messages>
 </mavlink>
