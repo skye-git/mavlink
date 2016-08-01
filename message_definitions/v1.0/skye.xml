@@ -301,5 +301,11 @@
     <field type="float"   name="y">Y angular velocity, body frame</field>
     <field type="float"   name="z">Z angular velocity, body frame</field>
   </message>
+  <message id="228" name="UWB_SENSOR_RAW_HIL">
+    <description>Message contaning ultra wideband distance measurements from a tag to an anchor.</description>
+    <field type="uint8_t" name="tag_id">UWB tag id</field>
+    <field type="uint8_t" name="anchor_id">UWB anchor id</field>
+    <field type="float"   name="dist_raw">Distance of the tag from the anchor</field>
+  </message>
   </messages>
 </mavlink>
