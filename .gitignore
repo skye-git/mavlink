@@ -1,2 +1,6 @@
 *.user
 pymavlink/dialects/*
+*.config
+*.creator
+*.files
+*.includes
