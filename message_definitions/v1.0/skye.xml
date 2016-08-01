@@ -158,6 +158,19 @@
      </entry>
   </enum>
 
+  <enum name="SKYE_HIL_CONFIG">
+     <description>Skye HIL configuration values for onboard parameter named SKYE_HIL_CONF.</description>
+     <entry value="0" name="SKYE_HIL_OFF">
+        <description>Disable HIL.</description>
+     </entry>
+     <entry value="1" name="SKYE_HIL_ON_AND_HIGH_ALLOCATOR_OUTPUT_STREAM">
+        <description>Enable HIL and stream allocation output at high rate.</description>
+     </entry>
+     <entry value="2" name="SKYE_HIL_ON_AND_LOW_ALLOCATOR_OUTPUT_STREAM">
+        <description>Enable HIL and stream allocation output at low rate.</description>
+     </entry>
+  </enum>
+
     </enums>
   <messages>
   <!-- Warning: indices must differ from common message set! -->
