@@ -248,6 +248,28 @@
     <field type="int8_t"      name="battery_remaining">Remaining battery energy: (0%: 0, 100%: 100), -1: autopilot does not estimate the remaining battery</field>
     <field type="uint8_t"     name="battery_status">Status of the battery</field>
   </message>
+  <message id="216" name="SKYE_EKF_UWB_STATE">
+    <description>Estimated state from the Extended Kalman Filter using UWB sensors</description>
+    <field type="float[3]" name="position">Estimated position of the blimp center in the NED (intertial) frame (m)</field>
+    <field type="float[3]" name="velocity">Estimated velocity of the blimp center in the NED (intertial) frame (m/s)</field>
+    <field type="float[3]" name="angular_velocity">Estimated angular velocity of the blimp in the body frame (rad/s)</field>
+    <field type="float[3]" name="orientation">Estimated orientation the blimp in the NED (inertial) frame, expressed as Euler's angles (rad)</field>
+    <field type="float[3]" name="external_force">Estimated external force applied on the the blimp in the body frame (N)</field>
+    <field type="float[3]" name="external_torque">Estimated external torque applied on the the blimp in the body frame (N.m)</field>
+    <field type="float[3]" name="accelerometer_bias">Estimated accelerometer bias in the body frame (m/s^2)</field>
+    <field type="uint8_t" name="outlier_rejection_mode">Outlier rejection mode. 0: model-based, 1: signal-based</field>	
+    <field type="uint8_t" name="state_valid">Estimated validity of the state. 1: valid, 0: invalid</field>			
+  </message>
+  <message id="217" name="SKYE_EKF_UWB_STATE_VARIANCE">
+    <description>Variance of the estimated state from the Extended Kalman Filter using UWB sensors</description>
+    <field type="float[3]" name="position">Variance of the estimated position of the blimp center in the NED (intertial) frame (m^2)</field>
+    <field type="float[3]" name="velocity">Variance of the estimated velocity of the blimp center in the NED (intertial) frame (m^2/s^2)</field>
+    <field type="float[3]" name="angular_velocity">Variance of the estimated angular velocity of the blimp in the body frame (rad^2/s^2)</field>
+    <field type="float[3]" name="orientation">Variance of the estimated orientation error of the blimp in the NED (inertial) frame, expressed as delta (rad^2)</field>
+    <field type="float[3]" name="external_force">Variance of the estimated external force applied on the the blimp in the body frame (N^2)</field>
+    <field type="float[3]" name="external_torque">Variance of the estimated external torque applied on the the blimp in the body frame (N^2.m^2)</field>
+    <field type="float[3]" name="accelerometer_bias">Variance of the estimated accelerometer bias in the body frame (m^2/s^4)</field>		
+  </message>
   <!-- messages 220-229 for skye input messages -->
   <message id="220" name="LED_CONTROL">
     <description>Control single LED or LED array</description>
@@ -316,6 +338,7 @@
   </message>
   <message id="228" name="UWB_SENSOR_RAW_HIL">
     <description>Message contaning ultra wideband distance measurements from a tag to an anchor.</description>
+    <field type="uint64_t" name="time_msg_sent">Time at which the message was sent</field>
     <field type="uint8_t" name="tag_id">UWB tag id</field>
     <field type="uint8_t" name="anchor_id">UWB anchor id</field>
     <field type="float"   name="dist_raw">Distance of the tag from the anchor</field>
