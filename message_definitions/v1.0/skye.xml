@@ -270,6 +270,16 @@
     <field type="float[3]" name="external_torque">Variance of the estimated external torque applied on the the blimp in the body frame (N^2.m^2)</field>
     <field type="float[3]" name="accelerometer_bias">Variance of the estimated accelerometer bias in the body frame (m^2/s^4)</field>		
   </message>
+<message id="218" name="RANGE_SENSOR_SINGLE">
+	<description>Raw distance measurements between two specified transcievers.</description>
+	<field type="uint64_t" name="px4_ts">PX4 timestamp taken when the actual measurement has been commanded at the pozyx node.</field>
+	<field type="uint32_t" name="pozyx_ts">Timestamp of last range measurement.</field>
+	<field type="uint32_t" name="range">Last range measurement in mm. The resolution of a range measurement is 4.69mm (corresponding to a timing resolution of 15.65ps)</field>
+	<field type="int16_t" name="rssi">Received signal strength value of last range measurement.</field>
+	<field type="uint16_t" name="anchor_id">Index of anchor</field>
+	<field type="uint16_t" name="tag_id">Index of tag</field>
+</message>
+
   <!-- messages 220-229 for skye input messages -->
   <message id="220" name="LED_CONTROL">
     <description>Control single LED or LED array</description>
