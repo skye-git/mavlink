@@ -78,15 +78,12 @@ def set_dialect(dialect):
     global mavlink, current_dialect
     from .generator import mavparse
     if 'MAVLINK20' in os.environ:
-        print("Using MAVLink 2.0")
         wire_protocol = mavparse.PROTOCOL_2_0
         modname = "pymavlink.dialects.v20." + dialect
     elif mavlink is None or mavlink.WIRE_PROTOCOL_VERSION == "1.0" or not 'MAVLINK09' in os.environ:
-        print("Using MAVLink 1.0")
         wire_protocol = mavparse.PROTOCOL_1_0
         modname = "pymavlink.dialects.v10." + dialect
     else:
-        print("Using MAVLink 0.9")
         wire_protocol = mavparse.PROTOCOL_0_9
         modname = "pymavlink.dialects.v09." + dialect
 
@@ -500,6 +497,7 @@ class mavfile(object):
                         mavlink.MAV_TYPE_HELICOPTER,
                         mavlink.MAV_TYPE_HEXAROTOR,
                         mavlink.MAV_TYPE_OCTOROTOR,
+                        mavlink.MAV_TYPE_COAXIAL,
                         mavlink.MAV_TYPE_TRICOPTER]:
             map = mode_mapping_acm
         if mav_type == mavlink.MAV_TYPE_FIXED_WING:
@@ -777,7 +775,10 @@ class mavserial(mavfile):
 
     def set_rtscts(self, enable):
         '''enable/disable RTS/CTS if applicable'''
-        self.port.setRtsCts(enable)
+        try:
+            self.port.setRtsCts(enable)
+        except Exception:
+            self.port.rtscts = enable
         self.rtscts = enable
 
     def set_baudrate(self, baudrate):
@@ -1096,6 +1097,7 @@ class mavlogfile(mavfile):
         self._last_message = msg
         if msg.get_type() != "BAD_DATA":
             self._last_timestamp = msg._timestamp
+        msg._link = self._link
 
 
 class mavmemlog(mavfile):
@@ -1422,7 +1424,10 @@ mode_mapping_acm = {
     13 : 'SPORT',
     14 : 'FLIP',
     15 : 'AUTOTUNE',
-    16 : 'POSHOLD'
+    16 : 'POSHOLD',
+    17 : 'BRAKE',
+    18 : 'THROW',
+    19 : 'AVOID_ADSB',
     }
 mode_mapping_rover = {
     0 : 'MANUAL',
@@ -1458,6 +1463,7 @@ def mode_mapping_byname(mav_type):
                     mavlink.MAV_TYPE_HELICOPTER,
                     mavlink.MAV_TYPE_HEXAROTOR,
                     mavlink.MAV_TYPE_OCTOROTOR,
+                    mavlink.MAV_TYPE_COAXIAL,
                     mavlink.MAV_TYPE_TRICOPTER]:
         map = mode_mapping_acm
     if mav_type == mavlink.MAV_TYPE_FIXED_WING:
@@ -1478,6 +1484,7 @@ def mode_mapping_bynumber(mav_type):
                     mavlink.MAV_TYPE_HELICOPTER,
                     mavlink.MAV_TYPE_HEXAROTOR,
                     mavlink.MAV_TYPE_OCTOROTOR,
+                    mavlink.MAV_TYPE_COAXIAL,
                     mavlink.MAV_TYPE_TRICOPTER]:
         map = mode_mapping_acm
     if mav_type == mavlink.MAV_TYPE_FIXED_WING:

@@ -61,10 +61,6 @@ def generate_mavlink_h(directory, xml):
 #define MAVLINK_COMMAND_24BIT ${command_24bit_define}
 #endif
 
-#ifndef MAVLINK_PACKED
-#define MAVLINK_PACKED __attribute__((__packed__))
-#endif
-
 #include "version.h"
 #include "${basename}.h"
 
@@ -99,10 +95,6 @@ extern "C" {
 
 #ifndef MAVLINK_MESSAGE_CRCS
 #define MAVLINK_MESSAGE_CRCS {${message_crcs_array}}
-#endif
-
-#ifndef MAVLINK_MESSAGE_INFO
-#define MAVLINK_MESSAGE_INFO {${message_info_array}}
 #endif
 
 #include "../protocol.h"
@@ -142,6 +134,10 @@ ${{message:#include "./mavlink_msg_${name_lower}.h"
 ${{include_list:#include "../${base}/${base}.h"
 }}
 
+#ifndef MAVLINK_MESSAGE_INFO
+#define MAVLINK_MESSAGE_INFO {${message_info_array}}
+#endif
+
 #if MAVLINK_COMMAND_24BIT
 #include "../mavlink_get_info.h"
 #endif
@@ -163,11 +159,11 @@ def generate_message_h(directory, m):
 
 #define MAVLINK_MSG_ID_${name} ${id}
 
-typedef struct MAVLINK_PACKED __mavlink_${name_lower}_t
-{
+MAVPACKED(
+typedef struct __mavlink_${name_lower}_t {
 ${{ordered_fields: ${type} ${name}${array_suffix}; /*< ${description}*/
 }}
-} mavlink_${name_lower}_t;
+}) mavlink_${name_lower}_t;
 
 #define MAVLINK_MSG_ID_${name}_LEN ${wire_length}
 #define MAVLINK_MSG_ID_${name}_MIN_LEN ${wire_min_length}
@@ -451,7 +447,12 @@ static void mavlink_test_${name_lower}(uint8_t system_id, uint8_t component_id, 
         }}
         ${{array_fields:mav_array_memcpy(packet1.${name}, packet_in.${name}, sizeof(${type})*${array_length});
         }}
-
+#ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
+        if (status->flags & MAVLINK_STATUS_FLAG_OUT_MAVLINK1) {
+           // cope with extensions
+           memset(MAVLINK_MSG_ID_${name}_MIN_LEN + (char *)&packet1, 0, sizeof(packet1)-MAVLINK_MSG_ID_${name}_MIN_LEN);
+        }
+#endif
         memset(&packet2, 0, sizeof(packet2));
 	mavlink_msg_${name_lower}_encode(system_id, component_id, &msg, &packet1);
 	mavlink_msg_${name_lower}_decode(&msg, &packet2);
