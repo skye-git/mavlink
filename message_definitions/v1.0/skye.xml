@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mavlink>
     <include>common.xml</include>
-
+    <version>3</version>
     <enums>
         <enum name="MAV_CMD">
             <!-- 1-10000 reserved for common commands -->
