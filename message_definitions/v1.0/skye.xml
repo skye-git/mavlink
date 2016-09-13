@@ -9,7 +9,7 @@
                 <description>Request the reset of an actuation unit component (see MAV_COMP_ID_SERVO)</description>
                 <param index="1">0: do nothing, 1: reset</param>
                 <param index="2">Empty</param>
-              <param index="3">Empty</param>
+                <param index="3">Empty</param>
                 <param index="4">Empty</param>
                 <param index="5">Empty</param>
                 <param index="6">Empty</param>
@@ -19,7 +19,17 @@
                 <description>Set Skye control mode parameter. TODO: Separate stabilisation from input interpretation</description>
                 <param index="1">0: manual, 1: stab 5DOF, 2: stab 5DOF. See enum SKYE_CONTROL_MODE</param>
                 <param index="2">Empty</param>
-              <param index="3">Empty</param>
+                <param index="3">Empty</param>
+                <param index="4">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+          <entry value="10003" name="MAV_CMD_SKYE_LOG_EVENT">
+                <description>Prompts Skye to write a log file with the current timestamp and session number</description>
+                <param index="1">Empty</param>
+                <param index="2">Empty</param>
+                <param index="3">Empty</param>
                 <param index="4">Empty</param>
                 <param index="5">Empty</param>
                 <param index="6">Empty</param>
