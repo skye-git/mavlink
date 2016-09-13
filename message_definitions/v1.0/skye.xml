@@ -181,6 +181,19 @@
      </entry>
   </enum>
 
+  <enum name="SKYE_LOG_EVENT_MODE">
+     <description>Describes the type of event that is logged</description>
+     <entry value="0" name="SKYE_LOG_EVENT_YAW_STEP">
+        <description>The blimp makes a step in the attitude without the user giving an input.</description>
+     </entry>
+     <entry value="1" name="SKYE_LOG_EVENT_YAW_DRIFT">
+        <description>The blimp slowly drifts in yaw direction without user input</description>
+     </entry>
+     <entry value="2" name="SKYE_LOG_EVENT_OTHER">
+        <description>An unexpected and remarkable event happend which needs to be futher inspected</description>
+     </entry>
+  </enum>
+
     </enums>
   <messages>
   <!-- Warning: indices must differ from common message set! -->
