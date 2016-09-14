@@ -27,7 +27,7 @@
             </entry>
           <entry value="10003" name="MAV_CMD_SKYE_LOG_EVENT">
                 <description>Prompts Skye to write a log file with the current timestamp and session number</description>
-                <param index="1">Empty</param>
+                <param index="1">0: yaw step, 1: yaw drift, 2: AU Shutdown, 3: other. See enum SKYE_LOG_EVENT_MODE</param>
                 <param index="2">Empty</param>
                 <param index="3">Empty</param>
                 <param index="4">Empty</param>
@@ -189,7 +189,10 @@
      <entry value="1" name="SKYE_LOG_EVENT_YAW_DRIFT">
         <description>The blimp slowly drifts in yaw direction without user input</description>
      </entry>
-     <entry value="2" name="SKYE_LOG_EVENT_OTHER">
+     <entry value="2" name="SKYE_LOG_EVENT_AU_SHUTDOWN">
+        <description>An unexpected and remarkable event happend which needs to be futher inspected</description>
+     </entry>
+     <entry value="3" name="SKYE_LOG_EVENT_OTHER">
         <description>An unexpected and remarkable event happend which needs to be futher inspected</description>
      </entry>
   </enum>
