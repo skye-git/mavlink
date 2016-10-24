@@ -292,13 +292,13 @@
   </message>
   <message id="221" name="SETPOINT_6DOF">
     <description>Set the 6 DOF setpoint for an attrate and velocity controller.</description>
-    <field type="uint8_t" name="target_system">System ID</field>
-    <field type="float" name="trans_x">Translational Component in x</field>
-    <field type="float" name="trans_y">Translational Component in y</field>
-    <field type="float" name="trans_z">Translational Component in z</field>
-    <field type="float" name="rot_x">Rotational Component in x</field>
-    <field type="float" name="rot_y">Rotational Component in y</field>
-    <field type="float" name="rot_z">Rotational Component in z</field>
+    <field type="int16_t" name="trans_x">Translational Component in x</field>
+    <field type="int16_t" name="trans_y">Translational Component in y</field>
+    <field type="int16_t" name="trans_z">Translational Component in z</field>
+    <field type="int16_t" name="rot_x">Rotational Component in x</field>
+    <field type="int16_t" name="rot_y">Rotational Component in y</field>
+    <field type="int16_t" name="rot_z">Rotational Component in z</field>
+    <field type="uint32_t" name="timestamp">QGC Timestamp </field>
   </message>
   <message id="222" name="SETPOINT_2DOF_ID">
     <description>Set the 2 DOF setpoint for the AU</description>
