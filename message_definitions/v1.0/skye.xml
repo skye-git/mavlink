@@ -197,13 +197,13 @@
      </entry>
   </enum>
 
-  <enum name="2DOF_UNIT">
+  <enum name="SKYE_SETPOINT_2DOF_UNIT">
      <description>Unit for the 2 degree of freedom setpoint.</description>
-     <entry value="0" name="2DOF_UNIT_PWM">
-        <description>Input is given as PWM value. General ranging between 0 and 1000.</description>
+     <entry value="0" name="SKYE_SETPOINT_2DOF_UNIT_PWM">
+        <description>Thrust input is given as PWM value. General ranging between 0 and 1000.</description>
      </entry>
-     <entry value="1" name="2DOF_UNIT_NEWTON">
-        <description>Input is given in Newton.</description>
+     <entry value="1" name="SKYE_SETPOINT_2DOF_UNIT_NEWTON">
+        <description>Thrust input is given in Newton.</description>
      </entry>
   </enum>
 
