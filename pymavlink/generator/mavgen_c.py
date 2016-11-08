@@ -130,10 +130,6 @@ ${{entry:	${name}=${value}, /* ${description} |${{param:${description}| }} */
 ${{message:#include "./mavlink_msg_${name_lower}.h"
 }}
 
-// base include
-${{include_list:#include "../${base}/${base}.h"
-}}
-
 #ifndef MAVLINK_MESSAGE_INFO
 #define MAVLINK_MESSAGE_INFO {${message_info_array}}
 #endif
@@ -141,6 +137,10 @@ ${{include_list:#include "../${base}/${base}.h"
 #if MAVLINK_COMMAND_24BIT
 #include "../mavlink_get_info.h"
 #endif
+
+// base include
+${{include_list:#include "../${base}/${base}.h"
+}}
 
 #ifdef __cplusplus
 }
