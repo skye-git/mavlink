@@ -197,6 +197,16 @@
      </entry>
   </enum>
 
+  <enum name="2DOF_UNIT">
+     <description>Unit for the 2 degree of freedom setpoint.</description>
+     <entry value="0" name="2DOF_UNIT_PWM">
+        <description>Input is given as PWM value. General ranging between 0 and 1000.</description>
+     </entry>
+     <entry value="1" name="2DOF_UNIT_NEWTON">
+        <description>Input is given in Newton.</description>
+     </entry>
+  </enum>
+
     </enums>
   <messages>
   <!-- Warning: indices must differ from common message set! -->
@@ -329,8 +339,9 @@
   <message id="222" name="SETPOINT_2DOF_ID">
     <description>Set the 2 DOF setpoint for the AU</description>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
+    <field type="uint8_t"   name="thrust_unit">Unit of thrust setpoint. See enum 2DOF_UNIT</field>
     <field type="float"     name="angle">Orientation motor setpoint of the AU [deg]</field>
-    <field type="float"     name="thrust">Thrust motor setpoint of the AU [N]</field>
+    <field type="float"     name="thrust">Thrust motor setpoint of the AU. Unit according to thrust_unit field.</field>
   </message>
   <message id="223" name="ATTITUDE_HIL">
     <description>Combined message containing attitude data from skye_ros package.</description>
