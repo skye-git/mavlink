@@ -221,11 +221,12 @@
     <field type="float"     name="ang_min">Minimum angle of actuators</field>
     <field type="float"     name="ang_max">Maximum angle of actuators</field>
     </message> -->
-  <!-- <message id="201" name="ACTUATION_CONFIGURATION_ID">
-    <description>Rotation parameters of AU. This fully describes position on on a spherical hull.</description>
-    <field type="uint8_t"   name="id">Actuation Uniti ID</field>
-    <field type="float[4]"  name="quat">Quaternion q_BM that describes rotation of the AU towards UAV</field>
-    </message> -->
+  <message id="201" name="POZYX_DISTANCE_DATA">
+	<description>Contains the number of active beacons, the tag id and its distances to the beacons</description>
+	<field type="uint8_t" name="id">Tag ID</field>
+	<field type="uint8_t" name="num_beacons">number of beacons active</field>
+	<field type="float[8]" name="distances">Distances of the beacons to the tag</field>
+  </message>
   <message id="202" name="ACTUATION_STATUS_ID">
     <description>Status of an actuation unit</description>
     <field type="uint8_t"   name="id">Actuation Unit ID</field>
